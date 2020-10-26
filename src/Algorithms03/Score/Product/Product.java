@@ -15,9 +15,13 @@ public class Product {
         this.numbers += numbers;
     }
 
-    public boolean take(){
+    public Product take(){
+        numbers--;
+        return this;
+    }
+
+    public boolean check(){
         if (numbers > 0){
-            numbers--;
             return true;
         }
         else {

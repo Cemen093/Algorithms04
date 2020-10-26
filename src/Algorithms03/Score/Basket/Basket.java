@@ -3,15 +3,18 @@ package Algorithms03.Score.Basket;
 import Algorithms03.Score.Product.Product;
 import java.util.ArrayList;
 
-
 public class Basket {
     ArrayList<Product> products = new ArrayList<>();
+    //products из Basket заполнекм много, работаем очень мало, расширения (основная работа колекции).
+    //ссылочный лист ок (дек, очередь, список), выбор колекции не имеет большого значения.
+    //но работать с ArrayList было привычнее (toString), а эфективность программы не было частью задания 8).
 
     public void addProduct(Product a){
         products.add(a);
     }
 
-    public String check(){
+    @Override
+    public String toString(){
         int len = 20;
         int col = 2;
         String separator = "+";
@@ -20,7 +23,7 @@ public class Basket {
         }
         separator += "+";
         for (int i = 0; i < col - 1; i++) {
-            separator += separator;
+            separator += separator.substring(1);
         }
         separator += "\n";
 
@@ -31,6 +34,7 @@ public class Basket {
             sum += products.get(i).getCost();
         }
         tmp += String.format("|%20s|%20s|\n%s", "Итого", sum, separator);
+        products = new ArrayList<>();
         return tmp;
     }
 
