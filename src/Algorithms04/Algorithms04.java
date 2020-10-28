@@ -1,11 +1,11 @@
-package Algorithms03;
+package Algorithms04;
 
-import Algorithms03.Score.Product.Product;
-import Algorithms03.Score.Score;
+import Algorithms04.Score.Product.Product;
+import Algorithms04.Score.Score;
 
 import java.util.Scanner;
 
-public class Algorithms03 {
+public class Algorithms04 {
     public static void main(String[] args) {
         Scanner scaner = new Scanner(System.in);
         Score score = new Score();
@@ -35,7 +35,7 @@ public class Algorithms03 {
                     break;
                 case "чек":
                     //распечатать чек
-                    score.check();
+                    score.printCheck();
                     break;
                 default:
                     System.out.println("Неизвестная команда");

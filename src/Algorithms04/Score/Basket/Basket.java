@@ -1,10 +1,10 @@
-package Algorithms03.Score.Basket;
+package Algorithms04.Score.Basket;
 
-import Algorithms03.Score.Product.Product;
+import Algorithms04.Score.Product.Product;
 import java.util.ArrayList;
 
 public class Basket {
-    ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
     //products из Basket заполнекм много, работаем очень мало, расширения (основная работа колекции).
     //ссылочный лист ок (дек, очередь, список), выбор колекции не имеет большого значения.
     //но работать с ArrayList было привычнее (toString), а эфективность программы не было частью задания 8).

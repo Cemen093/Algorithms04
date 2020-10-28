@@ -1,4 +1,4 @@
-package Algorithms03.Score.Product;
+package Algorithms04.Score.Product;
 
 public class Product {
     private String name;
@@ -15,11 +15,13 @@ public class Product {
         this.numbers += numbers;
     }
 
+    //к кастомному варианту поиска и добавления
     public Product take(){
         numbers--;
         return this;
     }
 
+    //к кастомному варианту поиска и добавления
     public boolean check(){
         if (numbers > 0){
             return true;
@@ -29,11 +31,22 @@ public class Product {
         }
     }
 
+    public void dec(){
+        numbers--;
+    }
+
     public String getName(){
         return name;
     }
 
     public int getCost() {
         return cost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        return (name.equals(((Product) o).name) && ((Product) o).numbers > 0);
     }
 }

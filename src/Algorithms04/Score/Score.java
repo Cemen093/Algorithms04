@@ -1,23 +1,22 @@
-package Algorithms03.Score;
+package Algorithms04.Score;
 
-import Algorithms03.Score.Basket.Basket;
-import Algorithms03.Score.Product.Product;
+import Algorithms04.Score.Basket.Basket;
+import Algorithms04.Score.Product.Product;
 
 import java.util.ArrayList;
 
 public class Score {
-    ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
     //prosucts - заполняем редко (по идее), работаем много.
     //Массив ок (ну или аррей лист на массиве, от части устранит проблему расширения).
-    Basket basket = new Basket();
+    private Basket basket = new Basket();
 
     public void addProduct(Product a){
         products.add(a);
     }
+
     public boolean searchAndAddToBasket(String name){
-        //Для пошуку товарів у каталозі використовуйте метод contains колекції.
-        //вот тут не понял, контаинтс ищет обект, но у меня поле обекта а не он сам, к томуже я не знаю остальных его полей.
-        //это вообще обезательно?
+        /*
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getName().equals(name)){
                 if (products.get(i).check()) {
@@ -30,13 +29,19 @@ public class Score {
             }
         }
         return false;
+        */
+        if (products.contains(new Product(name, 0,0))){
+            int index = products.indexOf(new Product(name, 0,0));
+            basket.addProduct(products.get(index));
+            products.get(index).dec();
+            return true;
+        }
+        return false;
     }
 
-    public void check(){
+    public void printCheck(){
+        //Гугл клянеться и божится что чек переводиться именно как scheck (даже галочка есть),
+        // но я согласен с замечанием и уточнил
         System.out.println(basket.toString());
-    }
-
-    public void status(){
-
     }
 }
